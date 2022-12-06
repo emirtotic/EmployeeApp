@@ -1,0 +1,578 @@
+{
+	"info": {
+		"_postman_id": "17c81fc1-5a75-4b40-8be0-5781a710f383",
+		"name": "EmployeeTracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11895096"
+	},
+	"item": [
+		{
+			"name": "Find Employee by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8091/api/employee-tracker/18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"api",
+						"employee-tracker",
+						"18"
+					]
+				},
+				"description": "Retrieving the employee by id parameter from DB"
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/employee-tracker/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"employee-tracker",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "-92083719",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"name\": \"do ad fugiat Lorem\",\n  \"personalId\": -74440838,\n  \"team\": \"tempor eu aliqua quis\",\n  \"teamLead\": \"culpa\",\n  \"id\": -39934157\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Employee by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8091/api/employee-tracker/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"api",
+						"employee-tracker",
+						"17"
+					]
+				},
+				"description": "Deleting the employee from Database by ID"
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/employee-tracker/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"employee-tracker",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "-92083719",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Update Employee",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 18,\n    \"personalId\": 555101,\n    \"name\": \"Milos\",\n    \"team\": \"Development\",\n    \"teamLead\": \"Mirko\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8091/api/employee-tracker/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"api",
+						"employee-tracker",
+						"update"
+					]
+				},
+				"description": "Updating Employee and saving into DB"
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"do ad fugiat Lorem\",\n  \"personalId\": -74440838,\n  \"team\": \"tempor eu aliqua quis\",\n  \"teamLead\": \"culpa\",\n  \"id\": -39934157\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/employee-tracker/update",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"employee-tracker",
+								"update"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"name\": \"do ad fugiat Lorem\",\n  \"personalId\": -74440838,\n  \"team\": \"tempor eu aliqua quis\",\n  \"teamLead\": \"culpa\",\n  \"id\": -39934157\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"personalId\": 555123,\n    \"name\": \"Milos\",\n    \"team\": \"Development\",\n    \"teamLead\": \"Mirko\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8091/api/employee-tracker/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"api",
+						"employee-tracker",
+						"create"
+					]
+				},
+				"description": "Creating New Employee and saving into DB"
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"do ad fugiat Lorem\",\n  \"personalId\": -74440838,\n  \"team\": \"tempor eu aliqua quis\",\n  \"teamLead\": \"culpa\",\n  \"id\": -39934157\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/employee-tracker/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"employee-tracker",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"name\": \"do ad fugiat Lorem\",\n  \"personalId\": -74440838,\n  \"team\": \"tempor eu aliqua quis\",\n  \"teamLead\": \"culpa\",\n  \"id\": -39934157\n}"
+				}
+			]
+		},
+		{
+			"name": "Find Employees by filter",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8091/api/employee-tracker/search?personalId=987654&team=Development&teamLead=Mirko",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"api",
+						"employee-tracker",
+						"search"
+					],
+					"query": [
+						{
+							"key": "personalId",
+							"value": "987654"
+						},
+						{
+							"key": "name",
+							"value": "Marko",
+							"disabled": true
+						},
+						{
+							"key": "team",
+							"value": "Development"
+						},
+						{
+							"key": "teamLead",
+							"value": "Mirko"
+						}
+					]
+				},
+				"description": "Retrieving all employees by filter search"
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/employee-tracker/search?personalId=-92083719&name=amet&team=amet&teamLead=amet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"employee-tracker",
+								"search"
+							],
+							"query": [
+								{
+									"key": "personalId",
+									"value": "-92083719"
+								},
+								{
+									"key": "name",
+									"value": "amet"
+								},
+								{
+									"key": "team",
+									"value": "amet"
+								},
+								{
+									"key": "teamLead",
+									"value": "amet"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n  {\n    \"name\": \"esse laboris\",\n    \"personalId\": -85614292,\n    \"team\": \"aute cillum\",\n    \"teamLead\": \"in occaecat\",\n    \"id\": -79639724\n  },\n  {\n    \"name\": \"sunt culpa\",\n    \"personalId\": -62369015,\n    \"team\": \"et Excepteur in laboris ullamco\",\n    \"teamLead\": \"eiusmod aliquip cillum\",\n    \"id\": -9125585\n  }\n]"
+				}
+			]
+		},
+		{
+			"name": "Find all Employees",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8091/api/employee-tracker/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"api",
+						"employee-tracker",
+						"all"
+					]
+				},
+				"description": "Retrieving all employees from DB"
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/employee-tracker/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"employee-tracker",
+								"all"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n  {\n    \"name\": \"esse laboris\",\n    \"personalId\": -85614292,\n    \"team\": \"aute cillum\",\n    \"teamLead\": \"in occaecat\",\n    \"id\": -79639724\n  },\n  {\n    \"name\": \"sunt culpa\",\n    \"personalId\": -62369015,\n    \"team\": \"et Excepteur in laboris ullamco\",\n    \"teamLead\": \"eiusmod aliquip cillum\",\n    \"id\": -9125585\n  }\n]"
+				}
+			]
+		},
+		{
+			"name": "Create PDF Report of filtered employees",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8091/api/employee-tracker/report/pdf?team=Development",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"api",
+						"employee-tracker",
+						"report",
+						"pdf"
+					],
+					"query": [
+						{
+							"key": "team",
+							"value": "Development"
+						}
+					]
+				},
+				"description": "Create team Employees PDF Report"
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/employee-tracker/report/pdf?team=amet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"employee-tracker",
+								"report",
+								"pdf"
+							],
+							"query": [
+								{
+									"key": "team",
+									"value": "amet"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "*/*"
+						}
+					],
+					"cookie": [],
+					"body": "amet"
+				}
+			]
+		},
+		{
+			"name": "Create XLSX Report",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8091/api/employee-tracker/report/excel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"api",
+						"employee-tracker",
+						"report",
+						"excel"
+					]
+				},
+				"description": "Create Employees Excel Report"
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/employee-tracker/report/excel?team=amet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"employee-tracker",
+								"report",
+								"excel"
+							],
+							"query": [
+								{
+									"key": "team",
+									"value": "amet"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "*/*"
+						}
+					],
+					"cookie": [],
+					"body": "amet"
+				}
+			]
+		}
+	]
+}
