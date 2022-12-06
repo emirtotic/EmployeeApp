@@ -43,7 +43,6 @@ class EmployeeMapperTest {
 
         EmployeeDTO result = employeeMapper.mapToDTO(employee);
 
-        assertEquals(employee.getId(), result.getId());
         assertEquals(employee.getPersonalId(), result.getPersonalId());
         assertEquals(employee.getName(), result.getName());
         assertEquals(employee.getTeam(), result.getTeam());
@@ -68,7 +67,6 @@ class EmployeeMapperTest {
 
         List<EmployeeDTO> results = employeeMapper.mapToDTO(Collections.singletonList(employee));
 
-        assertEquals(employee.getId(), results.get(0).getId());
         assertEquals(employee.getPersonalId(), results.get(0).getPersonalId());
         assertEquals(employee.getName(), results.get(0).getName());
         assertEquals(employee.getTeam(), results.get(0).getTeam());
@@ -90,7 +88,6 @@ class EmployeeMapperTest {
     private EmployeeDTO createEmployeeDTO() {
 
         EmployeeDTO employeeDTO = new EmployeeDTO();
-        employeeDTO.setId(3L);
         employeeDTO.setPersonalId(738291L);
         employeeDTO.setName("Filip");
         employeeDTO.setTeam("Development");

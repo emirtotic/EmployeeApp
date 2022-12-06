@@ -41,7 +41,7 @@ public class EmployeeTrackerServiceImpl implements EmployeeTrackerService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<EmployeeDTO> findByFiler(Long personalId, String name, String team, String teamLead) {
+    public List<EmployeeDTO> findByFilter(Long personalId, String name, String team, String teamLead) {
 
         log.info("Searching for Employees from database...");
         return employeeMapper.mapToDTO(employeeTrackerRepository.findByFilter(personalId, name, team, teamLead));
@@ -69,11 +69,14 @@ public class EmployeeTrackerServiceImpl implements EmployeeTrackerService {
 
     @Override
     @Transactional
-    public EmployeeDTO update(EmployeeDTO employeeDTO) {
+    public EmployeeDTO update(Long id, EmployeeDTO employeeDTO) {
 
-        log.info("Attempting to update Employee with id {}.", employeeDTO.getId());
-        Employee employee = employeeMapper.mapToEntity(employeeDTO);
-        employee.setId(employeeDTO.getId());
-        return employeeMapper.mapToDTO(employeeTrackerRepository.save(employee));
+        log.info("Attempting to update Employee with id {}.", id);
+
+        employeeTrackerRepository.findById(id)
+                .orElseThrow(() -> new EmployeeNotFoundException(id));
+        Employee retrievedEmployee = employeeMapper.mapToEntity(employeeDTO);
+        retrievedEmployee.setId(id);
+        return employeeMapper.mapToDTO(employeeTrackerRepository.save(retrievedEmployee));
     }
 }

@@ -17,7 +17,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8091/api/employee-tracker/18",
+					"raw": "http://localhost:8091/api/employee-tracker/15",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -26,7 +26,7 @@
 					"path": [
 						"api",
 						"employee-tracker",
-						"18"
+						"15"
 					]
 				},
 				"description": "Retrieving the employee by id parameter from DB"
@@ -145,7 +145,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": 18,\n    \"personalId\": 555101,\n    \"name\": \"Milos\",\n    \"team\": \"Development\",\n    \"teamLead\": \"Mirko\"\n}",
+					"raw": "{\n    \"personalId\": 555101,\n    \"name\": \"Milossssss\",\n    \"team\": \"Development\",\n    \"teamLead\": \"Mirko\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -153,7 +153,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8091/api/employee-tracker/update",
+					"raw": "http://localhost:8091/api/employee-tracker/update/15",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -162,7 +162,8 @@
 					"path": [
 						"api",
 						"employee-tracker",
-						"update"
+						"update",
+						"15"
 					]
 				},
 				"description": "Updating Employee and saving into DB"
@@ -439,7 +440,7 @@
 			]
 		},
 		{
-			"name": "Create PDF Report of filtered employees",
+			"name": "Create PDF Report",
 			"request": {
 				"method": "GET",
 				"header": [

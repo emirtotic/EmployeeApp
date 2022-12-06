@@ -11,6 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
+import java.util.Collections;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -34,11 +35,11 @@ class ReportServiceImplTest {
     @DisplayName("Create PDF report Test")
     void createPdfReportTest() {
 
-        EmployeeDTO employeeDTO = createEmployeeDTO();
-
         when(jasperService.exportReportToPDF(anyString(), anyMap(), anyCollection()))
                 .thenReturn(new ByteArrayInputStream(new byte[0]));
-        when(employeeTrackerService.findById(anyLong())).thenReturn(employeeDTO);
+        when(employeeTrackerService.findByFilter(anyLong(), anyString(), anyString(), anyString()))
+                .thenReturn(Collections.singletonList(new EmployeeDTO()));
+        when(employeeMapper.mapToEntity(anyList())).thenReturn(Collections.singletonList(new Employee()));
 
         reportService.createPdfReport("Development");
         verify(jasperService, times(1)).exportReportToPDF(anyString(), anyMap(), anyCollection());
@@ -48,38 +49,13 @@ class ReportServiceImplTest {
     @DisplayName("Create Excel report Test")
     void createExcelReportTest() {
 
-        EmployeeDTO employeeDTO = createEmployeeDTO();
-
         when(jasperService.exportReportExcel(anyString(), anyMap(), anyCollection()))
                 .thenReturn(new ByteArrayInputStream(new byte[0]));
-        when(employeeTrackerService.findById(anyLong())).thenReturn(employeeDTO);
+        when(employeeTrackerService.findByFilter(anyLong(), anyString(), anyString(), anyString()))
+                .thenReturn(Collections.singletonList(new EmployeeDTO()));
+        when(employeeMapper.mapToEntity(anyList())).thenReturn(Collections.singletonList(new Employee()));
 
         reportService.createExcelReport("Development");
         verify(jasperService, times(1)).exportReportExcel(anyString(), anyMap(), anyCollection());
-    }
-
-
-    private Employee createEmployee() {
-
-        Employee employee = new Employee();
-        employee.setId(1L);
-        employee.setPersonalId(192837L);
-        employee.setName("Stefan");
-        employee.setTeam("Development");
-        employee.setTeamLead("Mirko");
-
-        return employee;
-    }
-
-    private EmployeeDTO createEmployeeDTO() {
-
-        EmployeeDTO employeeDTO = new EmployeeDTO();
-        employeeDTO.setId(3L);
-        employeeDTO.setPersonalId(738291L);
-        employeeDTO.setName("Filip");
-        employeeDTO.setTeam("Development");
-        employeeDTO.setTeamLead("Nemanja");
-
-        return employeeDTO;
     }
 }

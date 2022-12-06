@@ -36,7 +36,7 @@ public class EmployeeTrackerController {
                                                           @RequestParam(required = false) String team,
                                                           @RequestParam(required = false) String teamLead) {
 
-        return new ResponseEntity<>(employeeTrackerService.findByFiler(personalId, name, team, teamLead), HttpStatus.OK);
+        return new ResponseEntity<>(employeeTrackerService.findByFilter(personalId, name, team, teamLead), HttpStatus.OK);
     }
 
     @Operation(summary = "Create Employee", description = "Creating New Employee and saving into DB")
@@ -53,9 +53,10 @@ public class EmployeeTrackerController {
     }
 
     @Operation(summary = "Update Employee", description = "Updating Employee and saving into DB")
-    @PutMapping("/update")
-    public ResponseEntity<EmployeeDTO> update(@RequestBody @Valid EmployeeDTO employeeDTO) {
-        return new ResponseEntity<>(employeeTrackerService.update(employeeDTO), HttpStatus.OK);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<EmployeeDTO> update(@PathVariable(name = "id") Long id,
+                                              @RequestBody @Valid EmployeeDTO employeeDTO) {
+        return new ResponseEntity<>(employeeTrackerService.update(id, employeeDTO), HttpStatus.OK);
     }
 
     @Operation(summary = "Delete Employee by ID", description = "Deleting the employee from Database by ID")

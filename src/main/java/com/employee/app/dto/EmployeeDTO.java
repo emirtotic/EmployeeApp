@@ -13,8 +13,6 @@ import javax.validation.constraints.Size;
 @ToString
 public class EmployeeDTO {
 
-    private Long id;
-
     @NotNull
     private Long personalId;
 

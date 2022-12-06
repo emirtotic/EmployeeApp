@@ -10,10 +10,8 @@ import com.employee.app.service.ReportService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +70,7 @@ public class ReportServiceImpl implements ReportService {
             employeeReport.setTitle(team + " Employees");
             employeeReport.setDescription("You can find a list of Employees from " + team + " team below");
             employees = employeeMapper.mapToEntity(
-                    employeeTrackerService.findByFiler(null, null, team, null));
+                    employeeTrackerService.findByFilter(null, null, team, null));
         } else {
             employeeReport.setTitle("Our Employees");
             employeeReport.setDescription("You can find a list of all employees from our company below");

@@ -11,7 +11,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -75,13 +74,13 @@ class EmployeeTrackerServiceImplTest {
 
     @Test
     @DisplayName("Find All Employees by filter Test")
-    void findByFilerTest() {
+    void findByFilterTest() {
 
         when(employeeTrackerRepository.findByFilter(anyLong(), anyString(), anyString(), anyString()))
                 .thenReturn(Collections.singletonList(createEmployee()));
         when(employeeMapper.mapToDTO(anyList())).thenReturn(Collections.singletonList(createEmployeeDTO()));
 
-        employeeTrackerService.findByFiler(null, null, "Sales", null);
+        employeeTrackerService.findByFilter(null, null, "Sales", null);
 
         verify(employeeTrackerRepository, times(1))
                 .findByFilter(null, null, "Sales", null);
@@ -128,7 +127,7 @@ class EmployeeTrackerServiceImplTest {
         when(employeeMapper.mapToDTO(any(Employee.class))).thenReturn(employeeDTO);
         when(employeeTrackerRepository.save(any())).thenReturn(employee);
 
-        employeeTrackerService.update(employeeDTO);
+        employeeTrackerService.update(1L, employeeDTO);
 
         verify(employeeTrackerRepository, times(1)).save(any());
         verify(employeeMapper, times(1)).mapToEntity(any(EmployeeDTO.class));
@@ -150,7 +149,6 @@ class EmployeeTrackerServiceImplTest {
     private EmployeeDTO createEmployeeDTO() {
 
         EmployeeDTO employeeDTO = new EmployeeDTO();
-        employeeDTO.setId(3L);
         employeeDTO.setPersonalId(738291L);
         employeeDTO.setName("Filip");
         employeeDTO.setTeam("Development");
